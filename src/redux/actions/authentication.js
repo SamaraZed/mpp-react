@@ -22,18 +22,20 @@ const setAuthToken = (token) => {
   }
 };
 
-const setCurrentUser = (token) => {
-  return {
+const setCurrentUser = (data) => (dispatch) => {
+  dispatch({
     type: SET_CURRENT_USER,
-    payload: token ? decode(token) : null,
-  };
+    payload: data,
+  });
 };
 
 export const login = (userData, history) => async (dispatch) => {
   try {
     const response = await instance.post(`login/`, userData);
-    const { token } = response.data;
-    dispatch(setCurrentUser(token));
+    console.log(response);
+    const data = response.config.data;
+    // const { token } = response.data;
+    dispatch(setCurrentUser(data));
     history.push("/items");
   } catch (error) {
     console.error("ERROR while logging in", error);
