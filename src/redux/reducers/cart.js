@@ -3,7 +3,6 @@ import {
   CHANGE_QUANTITY,
   REMOVE_FROM_CART,
   CHECKOUT,
-  SET_PROFILE,
 } from "../actions/actionTypes";
 
 const initialState = {
