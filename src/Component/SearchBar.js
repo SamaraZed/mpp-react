@@ -4,7 +4,10 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function SearchBar({ onChange }) {
   return (
-    <div className="form-group col-lg-6 col-12 mx-auto">
+    <div
+      className="form-group col-lg-6 col-12 mx-auto "
+      style={{ marginTop: "1rem" }}
+    >
       <div className="input-group my-3">
         <input
           id="border-search"
