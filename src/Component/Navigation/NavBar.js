@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-
+import SearchBar from "../SearchBar";
 // Components
 import AuthButton from "./AuthButton";
 

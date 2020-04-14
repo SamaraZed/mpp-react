@@ -9,18 +9,19 @@ import NavBar from "./Component/Navigation/NavBar";
 import Login from "./Component/Login";
 import Signup from "./Component/Signup";
 import ItemsList from "./Component/ItemsList";
-import ItemDetail from "./Component/ItemDetail";
+import Profile from "./Component/Profile";
 
 function App() {
   return (
     <div style={{ background: "rgba(255, 255, 255, 0)" }}>
       <NavBar />
       <Switch>
-        <Route exact path="/items/:itemID" component={ItemDetail} />
-        <Route path="/items" component={ItemsList} />
+        <Route path="/clotheslist" component={ItemsList} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Signup} />
-        <Redirect exact from="/" to="/items" />
+        <Route path="/profile" component={Profile} />
+
+        <Redirect exact from="/" to="/clotheslist" />
       </Switch>
       <Footer />
     </div>

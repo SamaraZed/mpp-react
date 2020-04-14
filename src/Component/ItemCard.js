@@ -13,8 +13,8 @@ const ItemCard = ({ item }) => (
       </h5>
       <p class="card-text">
         <span>{item.price} JOD</span>
-        <p>{item.description}</p>
-        <p class="card-discription">{item.quantity} left in the stock</p>
+        <p className="card-description">{item.discription}</p>
+        <p class="card-text">{item.quantity} left in the stock</p>
       </p>
       <button className="btn btn-primary">Add to Cart</button>
     </div>

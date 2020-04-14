@@ -15,14 +15,14 @@ const Logout = (props) => {
     </li>
   );
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: () => dispatch(actionCreators.logout()),
-  };
-};
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(actionCreators.logout()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Logout);
