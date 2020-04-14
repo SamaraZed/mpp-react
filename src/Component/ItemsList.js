@@ -26,7 +26,8 @@ class ItemsList extends Component {
 
     return (
       <div className="items">
-        <h3>OGA SHOP</h3>
+        <br />
+        <br />
         <SearchBar onChange={this.setQeury} />
         <div className="row">{itemCards}</div>
       </div>

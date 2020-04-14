@@ -14,7 +14,7 @@ export const checkForExpiredToken = () => async (dispatch) => {
 
 const setAuthToken = (token) => {
   if (token) {
-    localStorage.setItems("token", token);
+    localStorage.setItem("token", token);
     instance.defaults.headers.Authorization = `jwt ${token}`;
   } else {
     localStorage.removeItem("token");
@@ -22,21 +22,23 @@ const setAuthToken = (token) => {
   }
 };
 
-const setCurrentUser = (data) => (dispatch) => {
-  dispatch({
+const setCurrentUser = (user) => {
+  return {
     type: SET_CURRENT_USER,
-    payload: data,
-  });
+    payload: user,
+  };
 };
 
 export const login = (userData, history) => async (dispatch) => {
   try {
     const response = await instance.post(`login/`, userData);
     console.log(response);
-    const data = response.config.data;
-    // const { token } = response.data;
-    dispatch(setCurrentUser(data));
-    history.push("/items");
+    // const data = response.config.data;
+    const { access } = response.data;
+    setAuthToken(access);
+    const user = decode(access);
+    dispatch(setCurrentUser(user));
+    history.push("/clotheslist");
   } catch (error) {
     console.error("ERROR while logging in", error);
   }
@@ -46,10 +48,11 @@ export const signup = (userData, history) => async (dispatch) => {
   try {
     await instance.post(`register/`, userData);
     dispatch(login(userData));
-    history.push("/items");
+
+    history.push("/clotheslist");
   } catch (error) {
     console.error("ERROR while signing up", error);
   }
 };
 
-export const logout = () => setCurrentUser();
+export const logout = () => setCurrentUser(null);

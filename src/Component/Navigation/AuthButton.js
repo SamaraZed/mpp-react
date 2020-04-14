@@ -5,7 +5,11 @@ import Logout from "../Logout";
 
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignInAlt, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSignInAlt,
+  faUserPlus,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
 
 const AuthButton = ({ user }) => {
   let buttons = [
@@ -21,7 +25,7 @@ const AuthButton = ({ user }) => {
     </li>,
   ];
 
-  if (user) {
+  if (user != null) {
     buttons = (
       <>
         <span className="navbar-text">{user.username}</span>

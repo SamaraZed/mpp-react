@@ -3,7 +3,7 @@ import instance from "./instance";
 
 export const fetchItems = () => async (dispatch) => {
   try {
-    const res = await instance.get("items/");
+    const res = await instance.get("clotheslist/");
     const items = res.data;
     dispatch({ type: FETCH_ITEMS, payload: items });
   } catch (error) {
