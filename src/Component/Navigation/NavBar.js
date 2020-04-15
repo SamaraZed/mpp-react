@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import SearchBar from "../SearchBar";
 // Components
 import AuthButton from "./AuthButton";
 
@@ -13,7 +12,7 @@ class NavBar extends Component {
           className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top "
           id="mainNav"
         >
-          <Link className="navbar-brand text-danger" to="/">
+          <Link className="navbar-brand text-danger" to="/clothesList">
             OGA Shop
           </Link>
 

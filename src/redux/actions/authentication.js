@@ -22,7 +22,8 @@ const setAuthToken = (token) => {
   }
 };
 
-const setCurrentUser = (user) => {
+export const setCurrentUser = (token) => {
+  const user = token ? token : null;
   return {
     type: SET_CURRENT_USER,
     payload: user,
@@ -32,8 +33,7 @@ const setCurrentUser = (user) => {
 export const login = (userData, history) => async (dispatch) => {
   try {
     const response = await instance.post(`login/`, userData);
-    console.log(response);
-    // const data = response.config.data;
+    // const user = response.config.data;
     const { access } = response.data;
     setAuthToken(access);
     const user = decode(access);
@@ -48,7 +48,6 @@ export const signup = (userData, history) => async (dispatch) => {
   try {
     await instance.post(`register/`, userData);
     dispatch(login(userData));
-
     history.push("/clotheslist");
   } catch (error) {
     console.error("ERROR while signing up", error);
