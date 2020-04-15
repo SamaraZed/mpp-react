@@ -9,6 +9,8 @@ class Signup extends Component {
   state = {
     username: "",
     email: "",
+    first_name: "",
+    last_name: "",
     password: "",
   };
 
@@ -23,7 +25,7 @@ class Signup extends Component {
   render() {
     if (this.props.user) return <Redirect to="/" />;
     const errors = this.props.errors;
-    const { username, email, password } = this.state;
+    const { username, first_name, last_name, email, password } = this.state;
 
     return (
       <div id="loginCard" className="card col-6 mx-auto p-0 mt-5">
@@ -50,6 +52,30 @@ class Signup extends Component {
                       value={username}
                       name="username"
                       placeholder="Username"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="first_name">First Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="first_name"
+                      value={first_name}
+                      name="first_name"
+                      placeholder="Name"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="last_name">Last Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="last_name"
+                      value={last_name}
+                      name="last_name"
+                      placeholder="Surename"
                       onChange={this.handleChange}
                     />
                   </div>

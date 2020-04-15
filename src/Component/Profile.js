@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+// import { Link, Redirect } from "react-router-dom";
 
 class Profile extends Component {
   render() {
     return (
       <div>
         <h3>
+          <br />
+          <br />
           <span>{this.props.user.username}</span>
-          <span>{this.props.user.email}</span>
         </h3>
       </div>
     );

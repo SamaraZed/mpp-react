@@ -25,10 +25,16 @@ const AuthButton = ({ user }) => {
     </li>,
   ];
 
-  if (user != null) {
+  if (user) {
     buttons = (
       <>
         <span className="navbar-text">{user.username}</span>
+        <Link to="/cart" className="nav-link">
+          <button className="btn btn-sm ">
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </button>
+        </Link>
+
         <Logout />
       </>
     );

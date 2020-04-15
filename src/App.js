@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 //Component
@@ -10,7 +10,7 @@ import Login from "./Component/Login";
 import Signup from "./Component/Signup";
 import ItemsList from "./Component/ItemsList";
 import Profile from "./Component/Profile";
-
+import Cart from "./Component/Cart";
 function App() {
   return (
     <div style={{ background: "rgba(255, 255, 255, 0)" }}>
@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Signup} />
         <Route path="/profile" component={Profile} />
-
+        <Route path="/cart" component={Cart} />
         <Redirect exact from="/" to="/clotheslist" />
       </Switch>
       <Footer />
