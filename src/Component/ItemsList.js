@@ -28,6 +28,7 @@ class ItemsList extends Component {
       <div className="items">
         <br />
         <br />
+        <br />
         <SearchBar onChange={this.setQeury} />
         <div className="row">{itemCards}</div>
       </div>

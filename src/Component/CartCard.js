@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-// import { Link, Redirect } from "react-router-dom";
 import { removeItem } from "../redux/actions";
 
 class CartCard extends Component {

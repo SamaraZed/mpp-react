@@ -3,9 +3,14 @@ import { connect } from "react-redux";
 import { addItem } from "../redux/actions";
 
 const ItemCard = ({ item, add }) => (
-  <div className="card col-4 " style={{ width: "10rem" }}>
-    <div className="image center" style={{ width: "10rem" }}>
-      <img className="card-img-top " src={item.picture} alt={item.name} />
+  <div className="card col-4 text-center mx-auto" style={{ margin: "3px" }}>
+    <div className="image ">
+      <img
+        className="card-img-top  "
+        style={{ height: 150, width: 150 }}
+        src={item.picture}
+        alt={item.name}
+      />
     </div>
     <div className="card-body">
       <h5 className="card-title">

@@ -1,6 +1,5 @@
 //items
 export const FETCH_ITEMS = "FETCH_ITEMS"; // To get all the items from the backend
-export const FETCH_ITEM_DETAIL = "FETCH_ITEM_DETAIL"; // This one for the item detail
 
 //Auth
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
@@ -16,3 +15,5 @@ export const CHANGE_QUANTITY = "CHANGE_QUANTITY";
 
 //Profile
 export const SET_PROFILE = "SET_PROFILE";
+export const EDIT_PROFILE = "EDIT_PROFILE";
+export const RESET_PROFILE = "RESET_PROFILE";

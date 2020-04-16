@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import CartCard from "./CartCard";
-import { checkout } from "../redux/actions";
+import { checkout, login } from "../redux/actions";
 class Cart extends Component {
   totalPrice = () => {
     let total = 0;
@@ -71,12 +71,20 @@ class Cart extends Component {
                   </Link>
                 </div>
                 <div className="col-sm-12 col-md-6 text-right">
-                  <button
-                    className="btn btn-lg btn-outline-success rounded-pill"
-                    onClick={() => this.props.checkout()}
-                  >
-                    Proceed to checkout
-                  </button>
+                  {this.props.user ? (
+                    <button
+                      className="btn btn-lg btn-outline-success rounded-pill"
+                      onClick={() => this.props.checkout()}
+                    >
+                      Proceed to checkout
+                    </button>
+                  ) : (
+                    <Link to="/login">
+                      <button className="btn btn-lg btn-outline-success rounded-pill">
+                        Login to checkout
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -89,11 +97,13 @@ class Cart extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    user: state.user,
     items: state.cart.order,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    login: () => dispatch(login()),
     checkout: () => dispatch(checkout()),
   };
 };

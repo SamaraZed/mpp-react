@@ -9,6 +9,7 @@ import {
   faSignInAlt,
   faUserPlus,
   faShoppingCart,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 const AuthButton = ({ user }) => {
@@ -29,6 +30,13 @@ const AuthButton = ({ user }) => {
     buttons = (
       <>
         <span className="navbar-text">{user.username}</span>
+
+        <Link to="/profile" className="nav-link">
+          <button className="btn btn-sm ">
+            <FontAwesomeIcon icon={faUser} />
+          </button>
+        </Link>
+
         <Link to="/cart" className="nav-link">
           <button className="btn btn-sm ">
             <FontAwesomeIcon icon={faShoppingCart} />
