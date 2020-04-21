@@ -24,6 +24,11 @@ const AuthButton = ({ user }) => {
         <FontAwesomeIcon icon={faUserPlus} /> Signup
       </Link>
     </li>,
+    <Link to="/cart" className="nav-link">
+      <button className="btn btn-sm ">
+        <FontAwesomeIcon icon={faShoppingCart} />
+      </button>
+    </Link>,
   ];
 
   if (user) {
