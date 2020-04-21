@@ -17,3 +17,6 @@ export const CHANGE_QUANTITY = "CHANGE_QUANTITY";
 export const SET_PROFILE = "SET_PROFILE";
 export const EDIT_PROFILE = "EDIT_PROFILE";
 export const RESET_PROFILE = "RESET_PROFILE";
+
+//Orders
+export const FETCH_ORDERS = "FETCH_ORDERS";

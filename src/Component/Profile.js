@@ -21,7 +21,7 @@ class Profile extends Component {
         </section>
         <div className="jumbotron">
           <img
-            style={{ height: 50, width: 50 }}
+            style={{ height: 100, width: 100 }}
             src={this.props.profile.image}
             alt={this.props.profile.user.first_name}
           />
@@ -37,6 +37,11 @@ class Profile extends Component {
         <Link to="/editprofile">
           <button className="btn rounded-pill btn-outline-secondary">
             Edit Profile
+          </button>
+        </Link>
+        <Link to="/order">
+          <button className="btn rounded-pill btn-outline-secondary">
+            prev orders
           </button>
         </Link>
       </div>

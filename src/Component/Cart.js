@@ -11,6 +11,17 @@ class Cart extends Component {
     });
     return total.toFixed(2);
   };
+
+  orderState = () => {
+    let newOrders = {
+      baskets: this.props.items,
+    };
+    return newOrders;
+  };
+  handleClick = async () => {
+    await this.props.checkout(this.orderState());
+  };
+
   render() {
     const getOrderItem = this.props.items.map((item) => (
       <CartCard key={item.name} orderItem={item} />
@@ -74,7 +85,7 @@ class Cart extends Component {
                   {this.props.user ? (
                     <button
                       className="btn btn-lg btn-outline-success rounded-pill"
-                      onClick={() => this.props.checkout()}
+                      onClick={() => this.props.checkout(this.handleClick())}
                     >
                       Proceed to checkout
                     </button>
@@ -104,7 +115,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     login: () => dispatch(login()),
-    checkout: () => dispatch(checkout()),
+    checkout: (order) => dispatch(checkout(order)),
   };
 };
 

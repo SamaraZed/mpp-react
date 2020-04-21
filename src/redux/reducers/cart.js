@@ -2,11 +2,13 @@ import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
   CHECKOUT,
+  FETCH_ORDERS,
 } from "../actions/actionTypes";
 
 const initialState = {
   items: [],
   order: [],
+  oldOrders: [],
   quantity: 0,
 };
 
@@ -36,13 +38,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         order: updatedItems,
       };
-
     case CHECKOUT:
       return {
-        ...state,
+        oldOrders: state.oldOrders.concat(action.payload),
         order: [],
       };
-
+    case FETCH_ORDERS:
+      const oldOrders = action.payload;
+      return {
+        ...state,
+        oldOrders: oldOrders,
+      };
     default:
       return {
         ...state,
